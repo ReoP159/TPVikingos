@@ -1,6 +1,7 @@
 //Vikingos
 import Expediciones.*
 class Vikingo{
+	
 	var casta
 	method puedeIrA(unaExpedicion){
 		return self.esProductivo() && casta.puedeSubirAExpedicion(self)
@@ -13,8 +14,14 @@ class Vikingo{
 }
 
 class Soldado inherits Vikingo {
-	var cantArmas
+		var cantArmas
 	var vidasCobradas
+	constructor(armas,vidas,unaCasta){
+		cantArmas = armas
+		vidasCobradas = vidas
+		casta=unaCasta
+	}
+
 	override method esProductivo(){
 		return vidasCobradas>20&&self.tieneArmas()		
 	}
@@ -46,7 +53,7 @@ class Granjero inherits Vikingo {
 
 class Casta{
 	method puedeSubirAExpedicion(vik){return true}
-	method aumentarArmas(cantArmas){return }
+	method aumentarArmas(cantArmas){return 0}
 	method tenerHijos(cantHijos){return 0}
 	method ganarHectareas(hectareasDesignadas){return 0}
 	method ascender()

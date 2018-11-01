@@ -1,0 +1,19 @@
+import Vikingos.*
+import Expediciones.*
+
+describe "vikingos y expediciones"{
+	
+	var johny = new Soldado(3,25,new Karl())
+	var laPampa = new Aldea(crucifijos=15)
+	var laPlata = new Amurallada(crucifijos=25,cantMinima=2)
+	var bsas = new Capital(defensores=5,factorDeRiqueza=2)
+	
+	var asaltoALaPampa = new Expedicion([laPampa,laPlata,bsas])
+	
+	test"subir a jhony al Asalto a la Pampa"{
+//				assert.throwsExceptionLike(new VikingoInhabilitadoException("vikingo inhabilitado"), {asaltoALaPampa.subirVikingo(johny)})
+		assert.that(johny.puedeIrA(asaltoALaPampa))
+	}
+
+}
+

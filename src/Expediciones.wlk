@@ -5,6 +5,15 @@ class VikingoInhabilitadoException inherits Exception{}
 class Expedicion {
 	var vikingosInvasores
 	var localidades
+	constructor(lugares){
+		vikingosInvasores=[]
+		localidades = lugares
+	}
+	constructor(invasores,lugares){
+		vikingosInvasores = invasores
+		localidades = lugares
+	}
+
 	method valeLaPena(){
 		return localidades.all({loc => loc.valeLocalidad(vikingosInvasores.size())})
 	}
